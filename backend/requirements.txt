@@ -1,15 +1,16 @@
+# Backend requirements
 fastapi
 uvicorn[standard]
 python-dotenv
-sqlalchemy
-pyodbc
 pydantic
-langchain
+pyodbc
+sqlalchemy
+passlib[bcrypt]
+python-jose
+requests
 openai
-chromadb
+chroma-client
 neo4j
 scikit-learn
 xgboost
 reportlab
-python-multipart
-python-jose[cryptography]
