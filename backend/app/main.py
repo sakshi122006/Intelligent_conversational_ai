@@ -1,21 +1,23 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import auth, chatbot
-
 app = FastAPI(title="KSP Crime Intelligence API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-app.include_router(auth.router, prefix="/api/auth", tags=["auth"])
-app.include_router(chatbot.router, prefix="/api/chat", tags=["chatbot"])
+# simple health
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
 
-@app.get('/')
-async def root():
-    return {"status":"ok","service":"ksp-crime-intel"}
+# Mount routers (placeholders)
+from app.api import auth, chatbot, crimes
+app.include_router(auth.router, prefix="/api/auth")
+app.include_router(chatbot.router, prefix="/api/chatbot")
+app.include_router(crimes.router, prefix="/api/crimes")
