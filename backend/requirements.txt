@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+sqlalchemy
+pyodbc
+pydantic
+langchain
+openai
+chromadb
+neo4j
+scikit-learn
+xgboost
+reportlab
+python-multipart
+python-jose[cryptography]
