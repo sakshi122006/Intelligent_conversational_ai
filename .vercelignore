@@ -1,0 +1,8 @@
+# Ignore backend files for frontend deployment
+backend/
+docker-compose.yml
+database/
+docs/
+.env
+.git
+node_modules/
